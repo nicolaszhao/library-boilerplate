@@ -11,7 +11,7 @@
   "keywords": [
     "library"
   ],
-  "author": "{{author}}",
+  "author": "{{{author}}}",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
