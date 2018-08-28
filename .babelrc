@@ -1,0 +1,31 @@
+{
+  "env": {
+    "production": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
+        "stage-0"
+      ],
+      "plugins": [
+        "external-helpers"
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "stage-0"
+      ]
+    }
+  }
+}
