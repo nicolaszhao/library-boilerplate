@@ -1,12 +1,13 @@
 {
-  "name": "npm-library-boilerplate",
+  "name": "library-boilerplate",
   "version": "0.1.0",
   "description": "{{description}}",
-  "module": "dist/{{name}}.esm.js",
   "main": "dist/{{name}}.cjs.js",
+  "module": "dist/{{name}}.esm.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c",
-    "test": "cross-env NODE_ENV=test mocha --require babel-core/register"
+    "test": "cross-env NODE_ENV=test mocha --require babel-core/register",
+    "precommit": "lint-staged"
   },
   "keywords": [
     "library"
@@ -15,6 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^9.0.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -24,10 +26,17 @@
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
     "mocha": "^5.0.5",
     "rollup": "^0.65.0",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.6",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
   }
 }

@@ -2,7 +2,7 @@
 
 {{description}}
 
-## Install
+## Installation
 
 ## Usage
 
