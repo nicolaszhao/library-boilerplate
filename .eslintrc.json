@@ -1,3 +1,4 @@
 {
-    "extends": "nz"
+  "parser": "babel-eslint",  
+  "extends": "nz"
 }
