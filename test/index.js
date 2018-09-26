@@ -1,16 +1,10 @@
-const assert = require('assert');
-const { hello, world } = require('../src');
+import assert from 'assert';
+import { helloWorld } from '../src';
 
 describe('#src/index.js', () => {
-  describe('#hello()', () => {
-    it('hello() should return "hello"', () => {
-      assert.strictEqual(hello(), "hello");
+  describe('#helloWorld()', () => {
+    it('helloWorld() should return "Hello world!"', () => {
+      assert.strictEqual(helloWorld(), "Hello world!");
     });
-  });
-
-  describe('#world()', () => {
-    it('world() should return "world"', () => {
-      assert.strictEqual(world(), "world");
-    })
   });
 });
