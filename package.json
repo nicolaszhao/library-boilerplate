@@ -13,7 +13,6 @@
     "library"
   ],
   "author": "{{{author}}}",
-  "license": "MIT",
   "peerDependencies": {
     "@babel/runtime": "^7.0.0"
   },
