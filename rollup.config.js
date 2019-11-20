@@ -6,14 +6,14 @@ import external from 'rollup-plugin-peer-deps-external';
 import pkg from './package.json';
 
 const toCamelCaseName = (name) => name.split('-')
-  .map(text => text.charAt(0).toUpperCase() + text.slice(1))
+  .map((text) => text.charAt(0).toUpperCase() + text.slice(1))
   .join('');
 
 const scopePkgNameMatch = /^@[^/]+\/(.+)$/.exec(pkg.name);
 let pkgName = pkg.name;
 
 if (scopePkgNameMatch) {
-  pkgName = scopePkgNameMatch[1];
+  [, pkgName] = scopePkgNameMatch;
 }
 
 export default {

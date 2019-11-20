@@ -1,11 +1,11 @@
 {
-  "name": "library-boilerplate",
+  "name": "nicolaz-library-boilerplate",
   "version": "0.1.0",
   "description": "An awesome JavaScript library",
   "main": "dist/lib.cjs.js",
   "module": "dist/lib.esm.js",
   "scripts": {
-    "build": "rollup -c --environment NODE_ENV:production,INCLUDE_UMD",
+    "build": "rollup -c --environment NODE_ENV:production",
     "test": "cross-env NODE_ENV=test mocha --require @babel/register",
     "prepublishOnly": "npm run build"
   },
