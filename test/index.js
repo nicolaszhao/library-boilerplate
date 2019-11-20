@@ -1,10 +1,17 @@
 import assert from 'assert';
-import { helloWorld } from '../src';
+import WordConverter from '../src';
 
-describe('#src/index.js', () => {
-  describe('#helloWorld()', () => {
-    it('helloWorld() should return "Hello world!"', () => {
-      assert.strictEqual(helloWorld(), "Hello world!");
+describe('#WordConverter', () => {
+  const words = 'hello world';
+  const wordConverter = new WordConverter(words);
+
+  describe(`#new WordConverter('${words}')`, () => {
+    it(`wordConverter.toUpperCase() should return ${words.toUpperCase()}`, () => {
+      assert.strictEqual(wordConverter.toUpperCase(), words.toUpperCase());
+    });
+
+    it(`wordConverter.toLowerCase() should return ${words.toLowerCase()}`, () => {
+      assert.strictEqual(wordConverter.toLowerCase(), words.toLowerCase());
     });
   });
 });
