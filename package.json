@@ -1,50 +1,46 @@
 {
   "name": "library-boilerplate",
   "version": "0.1.0",
-  "description": "{{{description}}}",
-  "main": "dist/{{name}}.cjs.js",
-  "module": "dist/{{name}}.esm.js",
+  "description": "An awesome JavaScript library",
+  "main": "dist/lib.cjs.js",
+  "module": "dist/lib.esm.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production rollup -c",
-    "test": "cross-env NODE_ENV=test mocha --require @babel/register"
+    "build": "rollup -c --environment NODE_ENV:production,INCLUDE_UMD",
+    "test": "cross-env NODE_ENV=test mocha --require @babel/register",
+    "prepublishOnly": "npm run build"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "lint-staged": {
+    "src/**/*.js": "eslint"
+  },
   "keywords": [
     "library"
   ],
-  "author": "{{{author}}}",
-  "peerDependencies": {
-    "@babel/runtime": "^7.0.0"
-  },
   "devDependencies": {
-    "@babel/core": "^7.0.1",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "cross-env": "^5.1.4",
-    "eslint": "^5.14.0",
-    "eslint-config-nz-base": "^1.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.1",
-    "mocha": "^5.0.5",
-    "rollup": "^0.65.0",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^9.1.6",
-    "rollup-plugin-node-resolve": "^3.3.0",
+    "@babel/core": "^7.7.2",
+    "@babel/register": "^7.7.0",
+    "@hammal/babel-preset-app": "^0.11.0",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.0.0",
+    "eslint-config-nicolaz-base": "^0.5.3",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3",
+    "mocha": "^6.2.2",
+    "rollup": "^1.27.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0"
   },
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
+  "browserslist": [
+    "last 2 versions"
+  ],
   "files": [
     "dist"
   ]

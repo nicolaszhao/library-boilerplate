@@ -1,31 +1,5 @@
 {
-  "env": {
-    "production": {
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "modules": false
-          }
-        ]
-      ],
-      "plugins": [
-        "@babel/plugin-transform-runtime",
-        ["@babel/plugin-proposal-class-properties", { 
-          "loose": false 
-        }]
-      ]
-    },
-    "test": {
-      "presets": [
-        "@babel/preset-env"
-      ],
-      "plugins": [
-        "@babel/plugin-transform-runtime",
-        ["@babel/plugin-proposal-class-properties", { 
-          "loose": false 
-        }]
-      ]
-    }
-  }
+  "presets": [
+    "@hammal/babel-preset-app"
+  ]
 }

@@ -5,49 +5,42 @@ import external from 'rollup-plugin-peer-deps-external';
 
 import pkg from './package.json';
 
-const upperCamelCase = (name) => {
-  return name.split('-')
-    .map(text => text.charAt(0).toUpperCase() + text.slice(1))
-    .join('');
+const toCamelCaseName = (name) => name.split('-')
+  .map(text => text.charAt(0).toUpperCase() + text.slice(1))
+  .join('');
+
+const scopePkgNameMatch = /^@[^/]+\/(.+)$/.exec(pkg.name);
+let pkgName = pkg.name;
+
+if (scopePkgNameMatch) {
+  pkgName = scopePkgNameMatch[1];
+}
+
+export default {
+  input: 'src/index.js',
+  output: [
+    process.env.INCLUDE_UMD === 'true' && {
+      name: toCamelCaseName(pkgName),
+      file: `dist/${pkgName}.js`,
+      format: 'umd',
+      banner: `/* ${toCamelCaseName(pkgName)} v${pkg.version} by ${pkg.author} */`,
+    },
+    {
+      file: pkg.main,
+      format: 'cjs',
+    },
+    {
+      file: pkg.module,
+      format: 'esm',
+    },
+  ].filter(Boolean),
+  plugins: [
+    external(),
+    babel({
+      runtimeHelpers: true,
+      exclude: /node_modules/,
+    }),
+    resolve(),
+    commonjs(),
+  ],
 };
-
-const input = 'src/index.js';
-const plugins = [
-  external(),
-  babel({
-    runtimeHelpers: true,
-    exclude: 'node_modules/**'
-  }),
-  resolve(),
-  commonjs()
-];
-
-export default [
-  {
-    input,
-    output: [
-      {
-        name: upperCamelCase(pkg.name),
-        file: `dist/${pkg.name}.js`,
-        format: 'umd'
-      }
-    ],
-    plugins: [
-      ...plugins.slice(1)
-    ]
-  },
-  {
-    input,
-    output: [
-      {
-        file: `dist/${pkg.name}.cjs.js`,
-        format: 'cjs'
-      },
-      {
-        file: `dist/${pkg.name}.esm.js`,
-        format: 'esm'
-      }
-    ],
-    plugins
-  }
-];

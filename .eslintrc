@@ -1,4 +1,4 @@
 {
-  "parser": "babel-eslint",  
-  "extends": "nz-base"
+  "extends": "nicolaz-base",
+  "parser": "babel-eslint"
 }

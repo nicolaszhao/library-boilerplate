@@ -1,14 +1,7 @@
-# {{title}}
+# {{name}}
 
-{{{description}}}
-
-## Installation
+## 快速上手
 
 ```shell
 $ npm i {{name}}
 ```
-
-
-## Usage
-
-## License
