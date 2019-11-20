@@ -1,6 +1,7 @@
 {
   "name": "nicolaz-library-boilerplate",
   "version": "0.1.0",
+  "private": true,
   "description": "An awesome JavaScript library",
   "main": "dist/lib.cjs.js",
   "module": "dist/lib.esm.js",
