@@ -1,6 +1,6 @@
 # {{name}}
 
-## 快速上手
+## 上手
 
 ```shell
 $ npm i {{name}}
@@ -16,4 +16,3 @@ In `package.json`
 + "build": "rollup -c --environment NODE_ENV:production,INCLUDE_UMD",
 }
 ```
-
