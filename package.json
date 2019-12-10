@@ -6,6 +6,7 @@
   "main": "dist/lib.cjs.js",
   "module": "dist/lib.esm.js",
   "scripts": {
+    "start": "rollup -c -w --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production",
     "test": "cross-env NODE_ENV=test mocha --require @babel/register",
     "prepublishOnly": "npm run build"
