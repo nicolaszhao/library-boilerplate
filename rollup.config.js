@@ -23,7 +23,7 @@ export default {
       name: toCamelCaseName(pkgName),
       file: `dist/${pkgName}.js`,
       format: 'umd',
-      banner: `/* ${toCamelCaseName(pkgName)} v${pkg.version} by ${pkg.author} */`,
+      banner: `/* ${pkg.name} v${pkg.version} by ${pkg.author} */`,
     },
     {
       file: pkg.main,
